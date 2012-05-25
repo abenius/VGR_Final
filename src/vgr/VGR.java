@@ -25,20 +25,37 @@ public class VGR {
     }
     
     public static void dbAnslut() throws SQLException{
+        boolean adam = false;
         //setup
         try {
 			Class.forName("org.sqlite.JDBC");
 			System.out.print("Ansluter till databas...");
-			/*conn = DriverManager.getConnection("jdbc:sqlite:C:/Users/Emil/Desktop/Systemvetenskap - IT, Människa "
-                                + "och Organisation/År 2/Informationsteknologi och samhälle\1050/VGR/VGR_Final/vgrdataDB");*/
-                        conn = DriverManager.getConnection("jdbc:sqlite:vgrdataDB");
+			conn = DriverManager.getConnection("jdbc:sqlite:C:/Users/Emil/Dropbox/VGR/Teknik/vgrdataDB.sqlite");
+                        //conn = DriverManager.getConnection("jdbc:sqlite:vgrdataDB.sqlite");
                         System.out.println("  OK /db\n");
 			stmt = conn.createStatement();
 
 		} catch (ClassNotFoundException e) {
-			System.out.println("Drivrutinen kunde inte laddas.");
+                        System.out.println("Drivrutinen kunde inte laddas, provar adams path");
 		} catch (SQLException e) {
+                        adam = true;
 			System.out.println("Databasen kunde inte anslutas till.");
 		}
-    }
+        if(adam)
+            try {
+			Class.forName("org.sqlite.JDBC");
+			System.out.print("Ansluter till databas...");
+			conn = DriverManager.getConnection("jdbc:sqlite:/Users/AdamAbenius/Dropbox/VGR/Teknik/vgrdataDB.sqlite");
+                        //conn = DriverManager.getConnection("jdbc:sqlite:vgrdataDB.sqlite");
+                        System.out.println("  OK /db\n");
+			stmt = conn.createStatement();
+
+		} catch (ClassNotFoundException e) {
+			adam = true;
+                        System.out.println("Drivrutinen kunde inte laddas.");
+		} catch (SQLException e) {
+			System.out.println("Databasen kunde inte anslutas till.");
+
+            }
+      }
 }
