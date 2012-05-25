@@ -8,7 +8,7 @@ import java.sql.*;
 
 /**
  *
- * @author AdamAbenius
+ * @author Adam Abenius & Emil Bengtsson
  */
 public class VGR {
 
@@ -54,7 +54,7 @@ public class VGR {
 			adam = true;
                         System.out.println("Drivrutinen kunde inte laddas.");
 		} catch (SQLException e) {
-			System.out.println("Databasen kunde inte anslutas till.");
+			System.out.println("Databasen kunde inte anslutas till (adams path).");
 
             }
       }
