@@ -36,10 +36,10 @@ public class VGR {
 			stmt = conn.createStatement();
 
 		} catch (ClassNotFoundException e) {
-                        System.out.println("Drivrutinen kunde inte laddas, provar adams path");
+                        System.out.println("Drivrutinen kunde inte laddas");
 		} catch (SQLException e) {
                         adam = true;
-			System.out.println("Databasen kunde inte anslutas till.");
+			System.out.println("Databasen kunde inte anslutas till, provar adams path");
 		}
         if(adam)
             try {
